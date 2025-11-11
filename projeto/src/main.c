@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int opcao; //escolha do usuario
@@ -80,7 +81,35 @@ int main() {
             getchar(); getchar();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         } else if(opcao == 3) {
-            printf("Sua Compra:\n");
+            system("cls");
+            printf("\n--- Finalizando Compra ---\n");
+
+            float totalGeral = 0.0;
+            int vazio = 1;
+
+            for(int i = 0; i < 8; i++) {
+                if(carrinho[i] > 0) {
+                    float totalProduto = carrinho[i] * precos[i];
+                    printf("%s - %d unidade(s) - R$ %.2f\n", produtos[i], carrinho[i], totalProduto);
+                    totalGeral += totalProduto;
+                    vazio = 0;
+                }
+            }
+
+            if(vazio) {
+                printf("Seu carrinho esta vazio. Nenhuma compra realizada.\n");
+            } else {
+                printf("\nTotal da compra: R$ %.2f\n", totalGeral);
+                printf("Compra finalizada com sucesso!\n");
+
+                for(int i = 0; i < 8; i++) {
+                    carrinho[i] = 0;
+                }
+            }
+
+            printf("\nPressione ENTER para voltar ao menu...");
+            getchar(); getchar();
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         } else if (opcao == 4) {
             printf("Saindo do programa...\n");
         } else {
