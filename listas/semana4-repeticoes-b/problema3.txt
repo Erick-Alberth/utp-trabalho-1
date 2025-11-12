@@ -1,0 +1,2 @@
+O loop externo define a linha e o interno imprime números decrescentes.
+A saída forma um triângulo invertido de números.

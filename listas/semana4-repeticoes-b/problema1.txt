@@ -1,0 +1,2 @@
+O loop externo controla as linhas, e o interno imprime uma sequência crescente de números.
+O padrão formado é uma escada de números começando em 1 e terminando no número da linha.

@@ -1,0 +1,3 @@
+O código usa dois loops aninhados.
+O loop interno imprime asteriscos até alcançar o valor da linha atual.
+O resultado é um triângulo de asteriscos.

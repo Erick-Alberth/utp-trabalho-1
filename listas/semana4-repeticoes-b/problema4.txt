@@ -1,0 +1,2 @@
+O programa utiliza dois loops aninhados para criar um padrão simétrico de espaços e asteriscos.
+Forma uma pirâmide centralizada.
