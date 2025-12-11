@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-//formato data
+
 int eh_data(const char *s) {
     return isdigit(s[0]) && isdigit(s[1]) &&
            s[2] == '/' &&
@@ -22,33 +22,33 @@ int main() {
     int i = 0, n = strlen(rel);
 
     while (i < n) {
-        if (!eh_data(&rel[i])) {
+        if (i + 4 < n && eh_data(&rel[i])) {
+
+            i += 6; 
+            int presente = 0;
+
+            while (i < n && !(i + 4 < n && eh_data(&rel[i]))) {
+                char nome[20];
+                int k = 0;
+
+                while (i < n && rel[i] != ' ' && k < 19)
+                    nome[k++] = rel[i++];
+
+                nome[k] = '\0';
+
+                while (i < n && rel[i] == ' ')
+                    i++;
+
+                if (strcmp(nome, aluno) == 0)
+                    presente = 1;
+            }
+
+            if (!presente)
+                ausencias++;
+
+        } else {
             i++;
-            continue;
         }
-
-        i += 6;
-
-        int presente = 0;
-
-        while (i < n && !eh_data(&rel[i])) {
-            char nome[20];
-            int k = 0;
-
-            while (i < n && rel[i] != ' ' && k < 19)
-                nome[k++] = rel[i++];
-
-            nome[k] = '\0';
-
-            while (i < n && rel[i] == ' ')
-                i++;
-
-            if (strcmp(nome, aluno) == 0)
-                presente = 1;
-        }
-
-        if (!presente)
-            ausencias++;
     }
 
     printf("%d\n", ausencias);
